@@ -1,0 +1,41 @@
+.folderGroup {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 5px;
+    padding-left: 20px;
+}
+
+.folderGroup span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-right: 5px;
+    transform: translateY(-1px);
+}
+
+.folderGroup p {
+    padding-left: 25px;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.folderList {
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.activeFolder {
+    color:  rgb(63, 108, 243);
+    margin-left: 0px;
+}
+
+.errorMsg {
+    color: red;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    display: block;
+    max-width: 50%;
+}

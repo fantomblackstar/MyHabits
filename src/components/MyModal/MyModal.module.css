@@ -1,0 +1,44 @@
+.modal {
+    position: fixed;
+   top:0;
+   left:0;
+   bottom: 0;
+   right: 0;
+   display: none;
+   z-index: 8;
+   background-color: rgba(162, 158, 158, 0.5);
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    padding: 20px;
+    background: rgb(0, 0, 0);
+    border-radius:5px;
+    min-width: 280px;
+    max-width: 90%;
+    color: #fff;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal.light {
+    background-color: rgba(104, 104, 104, 0.5);
+}
+
+.modal.light .modalContent {
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+}
+
+.confirmFooter {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 20px;
+}

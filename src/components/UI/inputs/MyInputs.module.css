@@ -1,0 +1,46 @@
+.group {
+    position: relative;
+    margin: 10px 0px 10px;
+}
+
+.label {
+    position: absolute;
+    top: calc(1rem - 2px);
+    left: 0px;
+    transition: .3s;
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.input {
+    border: none;
+    position: relative;
+    width: 100%;
+    padding: 10px 10px 3px;
+    border-bottom: 1px solid rgba(215, 215, 215, 0.3);
+    background-color: transparent;
+    outline: none;
+    transition: .5s;
+    z-index: 2;
+    font-size: 18px;
+    color: inherit;
+}
+
+.input:focus {
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.input:focus~.label,
+.input:not(:placeholder-shown)~.label {
+    font-size: 12px;
+    top: -8px;
+}
+
+.input.light {
+    border-bottom: 1px solid grey;
+}
+
+.input.light:focus {
+    color: black;
+    border-bottom: 1px solid black;
+}

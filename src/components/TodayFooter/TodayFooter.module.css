@@ -1,0 +1,100 @@
+.footer {
+    height: 80px;
+    padding: 20px 0px;
+    background-color: rgb(40, 40, 40);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: .5s ease;
+}
+
+.footer::before {
+    width: 100%;
+    height: 1px;
+    display: block;
+    content: '';
+    position: absolute;
+    background-color: rgb(107, 107, 107);
+    top: 0px
+}
+
+.footerBody {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer.light {
+    background-color: rgb(183, 183, 183);
+}
+
+.habitDone {
+    width: 30px;
+    height: 30px;
+    display: block;
+    border: 2px solid rgb(215, 215, 215);
+    border-radius: 2px;
+    position: relative;
+}
+
+.habitDone::after {
+    width: 50%;
+    height: 50%;
+    content: '✓';
+    display: block;
+    position: absolute;
+    left: 7px;
+    color: #fff;
+    top: 0px;
+    transform: scale(150%);
+}
+
+.habitDone.light {
+    border: 2px solid #000;
+}
+
+.habitDone.light::after {
+    color: #000;
+}
+
+.habitDone.active {
+    border: 2px solid rgb(31 70 186);
+}
+
+.habitDone.active::after {
+    color: rgb(31 70 186);
+}
+
+.folder {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    justify-content: center;
+}
+
+.folder span {
+    text-align: center;
+    color: inherit;
+    transform: scale(150%);
+}
+
+.folder.light {
+    color: black;
+}
+
+.folder.light span {
+    font-weight: bold;
+}
+
+.btnCenter {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-40%, -50%);
+}
+
+@media (min-width:767px){
+    .footerBody {
+        justify-content: space-evenly;
+    }
+}

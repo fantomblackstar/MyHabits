@@ -1,0 +1,35 @@
+.frequency {
+    position: relative;
+    margin-top: 10px;
+}
+
+.input {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+}
+
+.daysBlock {
+    display: flex;
+    box-sizing: border-box;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: .5s ease;
+}
+
+.day {
+    padding: 5px 10px;
+    background-color: #333;
+    margin: 0px 3px 8px 3px;
+}
+
+.day.active {
+    background-color: rgb(31 70 186) !important;
+    color: #fff;
+}
+
+.day.light {
+    background-color: #fff;
+    border: 1px solid #888;
+}

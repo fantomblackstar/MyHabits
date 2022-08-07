@@ -1,0 +1,176 @@
+.header {
+    width: 100%;
+    position: fixed;
+    height: 70px;
+    background-color: rgb(40, 40, 40);
+    color: #fff;
+    z-index: 10;
+    transition: .3s ease;
+    top: 0;
+    left: 0;
+    box-shadow: 1px 2px 5px rgb(0, 0, 0);
+}
+
+.header.light {
+    background-color: rgb(31 70 186);
+}
+
+.theme {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: inherit;
+    z-index: 15;
+    padding: 20px 0px;
+    box-sizing: border-box;
+}
+
+.burger {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transition: 5s ease;
+    z-index: 10;
+}
+
+.burger span {
+    width: 100%;
+    display: inline-block;
+    opacity: 1;
+    position: absolute;
+    height: 3px;
+    background-color: #fff;
+    top: 13px;
+    transition: .5s;
+}
+
+.burger::before,
+.burger:after {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    transition: .2s ease-in;
+}
+
+.burger::before {
+    top: 0px;
+}
+
+.burger::after {
+    bottom: 0px;
+}
+
+.burger.active span {
+    opacity: 0;
+}
+
+.burger.active::before {
+    transform: rotate(45deg);
+    top: 13px;
+}
+
+.burger.active::after {
+    transform: rotate(-45deg);
+    bottom: 14px;
+}
+
+.title {
+    font-size: 1.5rem;
+    background-color: inherit;
+}
+
+@keyframes rotateImg {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+.settingImg {
+    height: 25px;
+    position: relative;
+    transition: .3s ease;
+    animation-duration: 1s;
+    animation-name: '';
+    transition: .5s ease;
+}
+
+.settingImg img {
+    height: 100%;
+    width: auto;
+}
+
+.headerBody, 
+.links {
+    transition: .5s ease;
+}
+
+.links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-top: 60px;
+    z-index: 12;
+    padding: 10px 20px 10px;
+    background-color: inherit;
+    left: 0;
+    top: -300px;
+}
+
+.link {
+    width: 100%;
+    padding: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.3rem;
+    text-align: center;
+    transition: inherit;
+}
+
+.links.active {
+    top: 0px;
+    box-shadow: 1px 2px 5px rgb(0, 0, 0);
+}
+
+@media (min-width:767px) {
+    .burger,
+    .title {
+        display: none;
+    }
+
+
+    .headerBody {
+        display: flex;
+    }
+
+    .links {
+        width: 50%;
+        position: relative;
+        top: 0;
+        flex-direction: row;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .link {
+        width: auto;
+        margin-right: 30px;
+        justify-content: left;
+    }
+
+    .theme {
+        margin-left: auto;
+    }
+}
