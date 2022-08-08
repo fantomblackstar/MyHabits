@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
 import Header from './components/Header/Header';
 import MyModal from './components/MyModal/MyModal';
 import { MyContext } from './context';
-import Login from './pages/Login';
 import './styles/App.css'
 
 function App() {
@@ -27,16 +26,13 @@ function App() {
       modal,
       setModal
     }}>
-      <BrowserRouter>
+      <HashRouter>
         <Header />
-        {userUid ?
-          <AppRouter /> :
-          <Login />
-        }
+        <AppRouter isAuth={userUid}/> 
         <MyModal>
           {modal.modalCtx}
         </MyModal>
-      </BrowserRouter>
+      </HashRouter>
     </MyContext.Provider>
   );
 }

@@ -10,8 +10,10 @@ const HabitCalendar = ({ habitDays, isLight }) => {
         infinite: false,
         speed: 500,
         initialSlide: 0,
-        nextArrow: <SampleNextArrow isLight={isLight}/>,
-        prevArrow: <SamplePrevArrow isLight={isLight}/>,
+        slidesToShow: 9,
+        slidesToScroll: 9,
+        nextArrow: <SampleNextArrow isLight={isLight} />,
+        prevArrow: <SamplePrevArrow isLight={isLight} />,
         responsive: [
             {
                 breakpoint: 1024,
@@ -78,11 +80,11 @@ const CalendarItem = ({ dayStr, done, isLight }) => {
     )
 }
 
-function SampleNextArrow({className, style, onClick, isLight}) {
+function SampleNextArrow({ className, style, onClick, isLight }) {
     return (
         <div
             className={`${className} ${cls.calendarArrow} ${isLight ? cls.light : ''}`}
-            style={{ ...style}}
+            style={{ ...style }}
             onClick={onClick}
         />
     );

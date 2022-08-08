@@ -6,6 +6,7 @@
     border-radius: 50%;
     border: none;
     position: relative;
+    cursor: pointer;
 }
 
 .addBtn::before,
@@ -47,6 +48,7 @@
     font-family: 'Montserrat', sans-serif;
     box-shadow: 1px 1px 5px #000;
     height: fit-content;
+    cursor: pointer;
 }
 
 .disabled {
