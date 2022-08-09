@@ -17,7 +17,6 @@ const HabitIdPage = () => {
 
     function getAllHabitDays() {
         let date = getDateFromStr(Object.keys(habit.doneDays)[0])
-
         let allHabitDays = { ...habit.doneDays }
         while (date.getTime() < new Date().getTime()) {
 
@@ -26,7 +25,6 @@ const HabitIdPage = () => {
             }
             date.setDate(date.getDate() + 1)
         }
-
         return Object.entries(allHabitDays).sort((a, b) => getDateFromStr(a[0]).getTime() - getDateFromStr(b[0]).getTime())
     }
 
@@ -43,7 +41,6 @@ const HabitIdPage = () => {
                 count -= count === 0 ? 0 : 1
                 currentStreak = 0
             }
-
             if (currentStreak > maxStreak) maxStreak = currentStreak
         });
 

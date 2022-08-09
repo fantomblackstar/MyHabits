@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { formatDate } from '../../utils';
 import { MyContext } from '../../context';
 import { useNavigate } from 'react-router-dom';
-import { write_DATA } from '../../db/firebase';
+import { writeDataDb } from '../../db/firebase';
 
 const Habit = ({ name, schedule, isToday, doneDays, id, ...props }) => {
     const { habitsObj, setHabitsObj, userUid, isLight } = useContext(MyContext)
@@ -18,7 +18,7 @@ const Habit = ({ name, schedule, isToday, doneDays, id, ...props }) => {
         updateHabit.doneDays[`${formatDate(new Date())}`] = !!!doneDays[`${formatDate(new Date())}`]
         let updateObj = {}
         updateObj[`${id}`] = updateHabit
-        write_DATA(`Habits/${userUid}/${id}`, updateHabit)
+        writeDataDb(`Habits/${userUid}/${id}`, updateHabit)
         setHabitsObj({ ...habitsObj, ...updateObj })
     }
 

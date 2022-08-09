@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MyContext } from '../../context';
-import { write_DATA } from '../../db/firebase';
+import { writeDataDb } from '../../db/firebase';
 import ModalConfirm from '../MyModal/ModalConfirm';
 import MyButton from '../UI/buttons/MyButton';
 import cls from './Habit.module.css';
@@ -26,8 +26,8 @@ const HabitFooter = ({ percent, habitId }) => {
     const updateHabit = () => {
         let newHabits = { ...habitsObj }
         delete newHabits[`${habitId}`]
-        if (percent === 100)  write_DATA(`Habits/${userUid}/${habitId}/finished`, true)
-        else  write_DATA(`Habits/${userUid}`, newHabits)
+        if (percent === 100)  writeDataDb(`Habits/${userUid}/${habitId}/finished`, true)
+        else  writeDataDb(`Habits/${userUid}`, newHabits)
         
         navigate('/')
         setHabitsObj({ ...newHabits })

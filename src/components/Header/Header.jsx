@@ -22,14 +22,14 @@ const Header = () => {
     else pathname = 'Today'
 
     const toggleMenu = () => {
-        (burger.current.classList.contains(cls.active)) ? burger.current.children[0].style.transition = '0.5s' : burger.current.children[0].style.transition = '0s'
+        burger.current.children[0].style.transition = (burger.current.classList.contains(cls.active)) ? '0.5s' : '0s'
         burger.current.classList.toggle(cls.active)
         links.current.classList.toggle(cls.active)
     }
 
     const go2Settings = () => {
         settingImg.current.style.animationName = cls.rotateImg
-        setTimeout(() =>  settingImg.current.style.animationName = '', 1000)
+        setTimeout(() => settingImg.current.style.animationName = '', 1000)
         navigate('/settings')
     }
 
@@ -52,7 +52,7 @@ const Header = () => {
                         onClick={() => go2Settings()}
                         ref={settingImg}
                     >
-                        <img src={isLight ? settingBlue: settingDark} alt='settings' />
+                        <img src={isLight ? settingBlue : settingDark} alt='settings' />
                     </div>
                 </div>
             </div>

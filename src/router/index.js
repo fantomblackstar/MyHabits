@@ -1,6 +1,5 @@
 import Today from '../pages/Today'
 import Week from '../pages/AllHabits'
-import NotFound from '../pages/NotFound'
 import HabitIdPage from '../pages/HabitIdPage'
 import Settings from '../pages/Settings'
 
@@ -11,6 +10,6 @@ export const publicRoutes = [
     { path: '/settings', element: <Settings/> },
     {
         path: '*',
-        element: <NotFound/>
+        element: <Today/>
     },
 ]

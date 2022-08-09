@@ -80,7 +80,7 @@ const CalendarItem = ({ dayStr, done, isLight }) => {
     )
 }
 
-function SampleNextArrow({ className, style, onClick, isLight }) {
+const SampleNextArrow = ({ className, style, onClick, isLight }) => {
     return (
         <div
             className={`${className} ${cls.calendarArrow} ${isLight ? cls.light : ''}`}
@@ -90,7 +90,7 @@ function SampleNextArrow({ className, style, onClick, isLight }) {
     );
 }
 
-function SamplePrevArrow({ className, style, onClick, isLight }) {
+const SamplePrevArrow = ({ className, style, onClick, isLight }) => {
     return (
         <div
             className={`${className} ${cls.calendarArrow} ${isLight ? cls.light : ''}`}

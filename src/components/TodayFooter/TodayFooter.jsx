@@ -6,7 +6,7 @@ import { MyContext } from '../../context';
 import HabitForm from '../Forms/HabitForm';
 import FolderForm from '../Forms/FolderForm';
 
-const HabitFotter = ({ folder, setFilter }) => {
+const TodayFotter = ({ folder, setFilter }) => {
     const { isLight, setModal, modal } = useContext(MyContext)
     const doneFilter = useRef(null)
 
@@ -51,4 +51,4 @@ const HabitFotter = ({ folder, setFilter }) => {
     );
 };
 
-export default HabitFotter;
+export default TodayFotter;

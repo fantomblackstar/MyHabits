@@ -29,7 +29,7 @@ export async function GoogleSignIn() {
         })
 }
 
-export async function get_DATA(path) {
+export async function getDataDb(path) {
     let res = false
     await get(child(dbRef, path)).then((snapshot) => {
         if (snapshot.exists()) {
@@ -41,19 +41,19 @@ export async function get_DATA(path) {
     return res
 }
 
-export async function write_DATA(path, updates) {
+export async function writeDataDb (path, updates) {
     const newUpdates = {};
     newUpdates[`${path}`] = updates
     return update(ref(db), newUpdates);
 }
 
-export async function getHabits_DATA(uid) {
+export async function getHabitsDataDb(uid) {
     let res = false
     await get(child(dbRef, `Habits/${uid}`)).then((snapshot) => {
         if (snapshot.exists()) {
             let habits = Object.entries(snapshot.val())
             habits = habits.filter(elem => elem[1].finished === false)
-            res =  Object.fromEntries(habits)
+            res = Object.fromEntries(habits)
         }
     }).catch((error) => {
         console.error(error);

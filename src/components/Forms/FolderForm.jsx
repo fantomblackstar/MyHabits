@@ -5,7 +5,7 @@ import MyInput from '../UI/inputs/MyInput';
 import cl from './Forms.module.css';
 import mainCl from '../../styles/main.module.css';
 import MyButton from '../UI/buttons/MyButton';
-import { write_DATA } from '../../db/firebase';
+import { writeDataDb } from '../../db/firebase';
 
 const FolderForm = ({ onFolderChange, activeFolder }) => {
     const { allFolders, setAllFolders, userUid } = useContext(MyContext)
@@ -23,7 +23,7 @@ const FolderForm = ({ onFolderChange, activeFolder }) => {
             setName('')
             return
         };
-        write_DATA(`Users/${userUid}/allFolders`, [...allFolders, folderName])
+        writeDataDb(`Users/${userUid}/allFolders`, [...allFolders, folderName])
         setAllFolders([...allFolders, folderName])
         setName('')
     }

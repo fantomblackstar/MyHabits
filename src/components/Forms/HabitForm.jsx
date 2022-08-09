@@ -12,7 +12,7 @@ import FolderForm from './FolderForm';
 import { useRef } from 'react';
 import { formatDate, getDayOfWeek } from '../../utils';
 import { useCallback } from 'react';
-import { write_DATA } from '../../db/firebase';
+import { writeDataDb } from '../../db/firebase';
 
 const HabitForm = () => {
     const { setModal, habitsObj, setHabitsObj , userUid} = useContext(MyContext)
@@ -49,7 +49,7 @@ const HabitForm = () => {
         const newHabit = {}
         newHabit[`${id}`] = { name: name.trim(), target: target.trim(), schedule: days, doneDays: getFirstDayObj(days), id, folder, finished: false }
 
-        write_DATA(`Habits/${userUid}/${id}`, newHabit[`${id}`]) 
+        writeDataDb(`Habits/${userUid}/${id}`, newHabit[`${id}`]) 
         setName('')
         setTarget('')
         setFolder('All')
