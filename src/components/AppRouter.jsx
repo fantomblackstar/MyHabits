@@ -3,20 +3,25 @@ import { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { MyContext } from '../context';
 import Login from '../pages/Login';
-import { publicRoutes } from '../router';
+import { privateRoutes, publicRoutes } from '../router';
 import cls from '../styles/main.module.css'
 
 const AppRouter = ({ isAuth }) => {
     return (
-        isAuth === '' ?
+        isAuth ?
             <Routes>
-                <Route
-                    path={'*'}
-                    element={<Login />}
-                />
+                {privateRoutes.map(({ path, element }, index) =>
+                    <Route
+                        path={path}
+                        element={
+                            <Wrap>{element}</Wrap>
+                        }
+                        key={index.toString()}
+                    />
+                )}
             </Routes> :
             <Routes>
-                {publicRoutes.map(({ path, element }, index) =>
+                  {publicRoutes.map(({ path, element }, index) =>
                     <Route
                         path={path}
                         element={

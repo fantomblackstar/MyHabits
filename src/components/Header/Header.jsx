@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MyContext } from '../../context';
 import settingBlue from '../../img/setting_blue.png'
 import settingDark from '../../img/setting_dark.png'
-import { publicRoutes } from '../../router';
+import { privateRoutes, publicRoutes } from '../../router';
 import { useRef } from 'react';
 
 const Header = () => {
@@ -41,7 +41,7 @@ const Header = () => {
                 className={`${mainCls.container} ${cls.headerBody}`}
             >
                 <Links ref={links} handleClick={toggleMenu} />
-                <div className={cls.theme}>
+                <div className={cls.mobileInfo}>
                     <Burger
                         ref={burger}
                         handleClick={toggleMenu}
@@ -75,7 +75,7 @@ const Links = memo(forwardRef(({ handleClick }, ref) => (
         className={cls.links}
         ref={ref}
     >
-        {publicRoutes.filter((e) => 'name' in e).map(({ path, name }) =>
+        {privateRoutes.filter((e) => 'name' in e).map(({ path, name }) =>
             <Link
                 key={path}
                 to={path}

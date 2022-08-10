@@ -6,6 +6,7 @@ import cl from './Forms.module.css';
 import mainCl from '../../styles/main.module.css';
 import MyButton from '../UI/buttons/MyButton';
 import { writeDataDb } from '../../db/firebase';
+import folderImg from '../../img/folder_icon.svg';
 
 const FolderForm = ({ onFolderChange, activeFolder }) => {
     const { allFolders, setAllFolders, userUid } = useContext(MyContext)
@@ -64,7 +65,7 @@ const FolderLists = memo(({ onFolderChange, allFolders, activeFolder = 'All' }) 
                         data-folder={name}
                         className={cl.folderGroup}
                         key={name}>
-                        <p className={`${activeFolder === name ? cl.activeFolder : ''}`}><span>🗀</span>{name}</p>
+                        <p className={`${activeFolder === name ? cl.activeFolder : ''}`}><img src={folderImg} alt='folder'/>{name}</p>
                     </div>
                 )
             })}

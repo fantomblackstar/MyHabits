@@ -35,12 +35,12 @@ const Login = () => {
     }
 
     return (
-        <div className={`${cls.wrap} ${isLight ? cls.light : ''}`}>
+        <>
             {showPreloader ?
                 <Preloader /> :
                 <Authorisation onSignIn={onSignIn} />
             }
-        </div>
+        </>
     );
 };
 

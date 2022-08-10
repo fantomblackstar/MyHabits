@@ -1,10 +1,11 @@
 import React, { useContext, useRef } from 'react';
 import AddButton from '../UI/buttons/AddButton';
-import cl from './TodayFooter.module.css';
+import cls from './TodayFooter.module.css';
 import mainClasses from '../../styles/main.module.css'
 import { MyContext } from '../../context';
 import HabitForm from '../Forms/HabitForm';
 import FolderForm from '../Forms/FolderForm';
+import folderImg from '../../img/folder_icon.svg';
 
 const TodayFotter = ({ folder, setFilter }) => {
     const { isLight, setModal, modal } = useContext(MyContext)
@@ -19,8 +20,8 @@ const TodayFotter = ({ folder, setFilter }) => {
     }
 
     const handleDoneFilter = () => {
-        doneFilter.current.classList.toggle(cl.active)
-        setFilter(prev => ({...prev, done:  doneFilter.current.classList.contains(cl.active)}))
+        doneFilter.current.classList.toggle(cls.active)
+        setFilter(prev => ({...prev, done:  doneFilter.current.classList.contains(cls.active)}))
     }
 
     const onFolderChange = (name) => {
@@ -29,22 +30,22 @@ const TodayFotter = ({ folder, setFilter }) => {
     }
 
     return (
-        <div className={`${cl.footer} ${isLight ? cl.light : ''}`}>
-            <div className={`${mainClasses.container} ${cl.footerBody}`}>
+        <div className={`${cls.footer} ${isLight ? cls.light : ''}`}>
+            <div className={`${mainClasses.container} ${cls.footerBody}`}>
                 <div
                     ref={doneFilter}
-                    className={`${cl.habitDone} ${cl.active} ${isLight ? cl.light : ''}`}
+                    className={`${cls.habitDone} ${cls.active} ${isLight ? cls.light : ''}`}
                     onClick={handleDoneFilter}></div>
                 <div
-                    className={`${cl.folder} ${isLight ? cl.light : ''}`}
+                    className={`${cls.folder} ${isLight ? cls.light : ''}`}
                     onClick={handleFolder}
                 >
-                    <span>🗀</span>
+                    <img src={folderImg} alt='folder'/>
                     <p>{folder}</p>
                 </div>
             </div>
             <AddButton
-                styles={[cl.btnCenter]}
+                styles={[cls.btnCenter]}
                 onClick={handleAddNew}
             />
         </div>

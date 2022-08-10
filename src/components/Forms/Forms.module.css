@@ -7,16 +7,17 @@
     padding-left: 20px;
 }
 
-.folderGroup span {
+.folderGroup img {
     position: absolute;
+    width: 20px;
+    height: 17px;
     left: 0;
     bottom: 0;
-    margin-right: 5px;
     transform: translateY(-1px);
 }
 
 .folderGroup p {
-    padding-left: 25px;
+    padding-left: 28px;
     position: relative;
     font-size: 1.1rem;
 }

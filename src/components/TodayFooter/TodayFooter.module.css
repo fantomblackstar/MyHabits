@@ -1,5 +1,5 @@
 .footer {
-    height: 80px;
+    height: 70px;
     padding: 20px 0px;
     background-color: rgb(40, 40, 40);
     position: fixed;
@@ -7,6 +7,7 @@
     left: 0;
     width: 100%;
     transition: .5s ease;
+    font-weight: 600;
 }
 
 .footer::before {
@@ -67,23 +68,20 @@
 
 .folder {
     display: flex;
+    width: 30px;
     flex-direction: column;
     color: #fff;
     justify-content: center;
-}
-
-.folder span {
-    text-align: center;
-    color: inherit;
-    transform: scale(150%);
+    align-items: center;
 }
 
 .folder.light {
-    color: black;
+    color: #000;
 }
 
-.folder.light span {
-    font-weight: bold;
+.folder img {
+    width: 20px;
+    height: auto;
 }
 
 .btnCenter {
@@ -97,4 +95,5 @@
     .footerBody {
         justify-content: space-evenly;
     }
+
 }

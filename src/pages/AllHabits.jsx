@@ -1,11 +1,12 @@
 import React, { useContext, useState, memo } from 'react';
 import { useMemo } from 'react';
+import AllHabitsFooter from '../components/AllHabitsFooter/AllHabitsFooter';
 import HabitShort from '../components/HabitShort/HabitShort';
 import MyInput from '../components/UI/inputs/MyInput';
 import { MyContext } from '../context';
 import mainStyles from '../styles/main.module.css';
 
-const AllHabits = () => {
+const AllHabits = memo(() => {
     const { habitsObj } = useContext(MyContext)
     const [searchQuery, setSearchQuery] = useState('')
 
@@ -27,9 +28,10 @@ const AllHabits = () => {
                 :
                 <p className={mainStyles.subtitle} style={{ textAlign: 'center' }}>Nothing found 🤷‍♂️</p>
             }
+            <AllHabitsFooter/>
         </div>
     );
-};
+});
 
 const HabitList = memo(({ habits }) => {
     return (
