@@ -19,7 +19,6 @@ const HabitIdPage = () => {
         let date = getDateFromStr(Object.keys(habit.doneDays)[0])
         let allHabitDays = { ...habit.doneDays }
         while (date.getTime() < new Date().getTime()) {
-
             if (habit.schedule.indexOf(getDayOfWeek(date)) !== -1 && !(formatDate(date) in allHabitDays)) {
                 allHabitDays[`${formatDate(date)}`] = false
             }
@@ -33,11 +32,14 @@ const HabitIdPage = () => {
         let maxStreak = 0
         let currentStreak = 0
 
-        habitDays.forEach(element => {
+        habitDays.forEach((element, index, arr) => {
             if (element[1] === true) {
                 currentStreak += 1;
                 count += 1
-            } else {
+            } else if(index === arr.length - 1){
+                return ;
+            }
+            else {
                 count -= count === 0 ? 0 : 1
                 currentStreak = 0
             }

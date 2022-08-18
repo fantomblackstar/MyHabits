@@ -2,7 +2,6 @@ import React from 'react';
 import { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import { MyContext } from '../context';
-import Login from '../pages/Login';
 import { privateRoutes, publicRoutes } from '../router';
 import cls from '../styles/main.module.css'
 

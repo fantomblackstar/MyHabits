@@ -5,33 +5,24 @@ import Authorisation from '../components/Authorisation/Authorisation';
 import Preloader from '../components/UI/preloaders/Preloader';
 import { MyContext } from '../context';
 import { getDataDb, getHabitsDataDb, GoogleSignIn, writeDataDb } from '../db/firebase';
-import cls from '../styles/main.module.css'
 
 const Login = () => {
-    const { isLight, setUserUid, setHabitsObj, setAllFolders } = useContext(MyContext)
+    const { setUserUid} = useContext(MyContext)
     const [showPreloader, setShowPreloader] = useState(false)
 
     const onSignIn = async () => {
         let res = await GoogleSignIn()
         if (res.length !== 0) {
             setShowPreloader(true)
-            getUserHabits(res)
+            const [name, email, uid] = res
+            let userExist = await getDataDb(`Users/${uid}`)
+            if (userExist === false) {
+                let user = { name, email, uid, allFolders: ['All'] }
+                writeDataDb(`Users/${uid}`, user)
+            }
+            setUserUid(uid)
+            window.localStorage.setItem('myHabitsUserUid', uid)
         }
-    }
-
-    const getUserHabits = async (googleRes) => {
-        const [name, email, uid] = googleRes
-
-        let userExist = await getDataDb(`Users/${uid}`)
-        if (userExist === false) {
-            let user = { name, email, uid, allFolders: ['All'] }
-            writeDataDb(`Users/${uid}`, user)
-        } else {
-            const habits = await getHabitsDataDb(uid)
-            if (habits) setHabitsObj(habits)
-            setAllFolders(userExist.allFolders)
-        }
-        setUserUid(uid)
     }
 
     return (

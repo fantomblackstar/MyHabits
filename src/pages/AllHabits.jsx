@@ -3,11 +3,12 @@ import { useMemo } from 'react';
 import AllHabitsFooter from '../components/AllHabitsFooter/AllHabitsFooter';
 import HabitShort from '../components/HabitShort/HabitShort';
 import MyInput from '../components/UI/inputs/MyInput';
+import Preloader from '../components/UI/preloaders/Preloader';
 import { MyContext } from '../context';
 import mainStyles from '../styles/main.module.css';
 
 const AllHabits = memo(() => {
-    const { habitsObj } = useContext(MyContext)
+    const { habitsObj, showPreloader } = useContext(MyContext)
     const [searchQuery, setSearchQuery] = useState('')
 
     const searchedHabits = useMemo(() => {
@@ -20,16 +21,18 @@ const AllHabits = memo(() => {
     }
 
     return (
-        <div className={mainStyles.container}>
-            <MyInput label={'Search 🔎'} value={searchQuery} handleChange={handleQuery} />
+        showPreloader ?
+            <Preloader /> :
+            <div className={mainStyles.container}>
+                <MyInput label={'Search 🔎'} value={searchQuery} handleChange={handleQuery} />
 
-            {searchedHabits.length > 0 ?
-                <HabitList habits={searchedHabits} />
-                :
-                <p className={mainStyles.subtitle} style={{ textAlign: 'center' }}>Nothing found 🤷‍♂️</p>
-            }
-            <AllHabitsFooter/>
-        </div>
+                {searchedHabits.length > 0 ?
+                    <HabitList habits={searchedHabits} />
+                    :
+                    <p className={mainStyles.subtitle} style={{ textAlign: 'center' }}>Nothing found 🤷‍♂️</p>
+                }
+                <AllHabitsFooter />
+            </div>
     );
 });
 

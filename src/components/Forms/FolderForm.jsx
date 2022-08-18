@@ -8,7 +8,7 @@ import MyButton from '../UI/buttons/MyButton';
 import { writeDataDb } from '../../db/firebase';
 import folderImg from '../../img/folder_icon.svg';
 
-const FolderForm = ({ onFolderChange, activeFolder }) => {
+const FolderForm = memo(({ onFolderChange, activeFolder }) => {
     const { allFolders, setAllFolders, userUid } = useContext(MyContext)
     const [name, setName] = useState('')
 
@@ -47,7 +47,7 @@ const FolderForm = ({ onFolderChange, activeFolder }) => {
             </div>
         </>
     );
-}
+})
 
 const FolderLists = memo(({ onFolderChange, allFolders, activeFolder = 'All' }) => {
     const handleFolder = (event) => {

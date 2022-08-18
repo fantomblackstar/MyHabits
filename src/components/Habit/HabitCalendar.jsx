@@ -69,8 +69,7 @@ export default HabitCalendar;
 
 const CalendarItem = ({ dayStr, done, isLight }) => {
     const date = getDateFromStr(dayStr)
-    const [dayOfWeek, day, month] = date.toUTCString().split(' ')
-
+    const [dayOfWeek, month,  day] = date.toString().split(' ')
     return (
         <div className={`${cls.calendarDay} ${isLight ? cls.light : ''} ${done ? cls.dayDone : ''}`}>
             <p >{month}</p>

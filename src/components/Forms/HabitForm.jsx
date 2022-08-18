@@ -15,7 +15,7 @@ import { useCallback } from 'react';
 import { writeDataDb } from '../../db/firebase';
 
 const HabitForm = () => {
-    const { setModal, habitsObj, setHabitsObj , userUid} = useContext(MyContext)
+    const { setModal, habitsObj, setHabitsObj, userUid } = useContext(MyContext)
     const [name, setName] = useState('')
     const [folder, setFolder] = useState('All')
     const [target, setTarget] = useState('')
@@ -47,9 +47,17 @@ const HabitForm = () => {
 
         const id = new Date().getTime().toString()
         const newHabit = {}
-        newHabit[`${id}`] = { name: name.trim(), target: target.trim(), schedule: days, doneDays: getFirstDayObj(days), id, folder, finished: false }
+        newHabit[`${id}`] = {
+            name: name.trim(),
+            target: target.trim(),
+            schedule: days,
+            doneDays: getFirstDayObj(days),
+            id,
+            folder,
+            finished: false
+        }
 
-        writeDataDb(`Habits/${userUid}/${id}`, newHabit[`${id}`]) 
+        writeDataDb(`Habits/${userUid}/${id}`, newHabit[`${id}`])
         setName('')
         setTarget('')
         setFolder('All')
@@ -69,9 +77,9 @@ const HabitForm = () => {
         return res
     }
 
-    const onFolderChange = (name) => {
+    const onFolderChange = useCallback((name) => {
         setFolder(name)
-    }
+    }, [])
 
     const showErrorMsg = async (text) => {
         errorBlock.current.textContent = text

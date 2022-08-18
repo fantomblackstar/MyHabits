@@ -2,12 +2,13 @@ import React, { useContext, useState, useMemo, memo } from 'react';
 import HabitShort from '../components/HabitShort/HabitShort';
 import TodayFotter from '../components/TodayFooter/TodayFooter';
 import MyInput from '../components/UI/inputs/MyInput';
+import Preloader from '../components/UI/preloaders/Preloader';
 import { MyContext } from '../context';
 import mainStyles from '../styles/main.module.css'
 import { formatDate, getDayOfWeek } from '../utils';
 
 const Today = () => {
-    const { habitsObj } = useContext(MyContext)
+    const { habitsObj, showPreloader } = useContext(MyContext)
     const [filter, setFilter] = useState({ folder: 'All', query: '', done: true })
 
     const todayHabits = useMemo(() => {
@@ -30,18 +31,20 @@ const Today = () => {
     }
 
     return (
-        <div className={mainStyles.container}>
-            <MyInput label={'Search 🔎'} value={filter.query} handleChange={onQueryChange} />
-            {searchedHabits.length > 0 ?
-                <HabitList habitsArr={searchedHabits} />
-                :
-                <p className={mainStyles.subtitle} style={{ textAlign: 'center' }}>Nothing found 🤷‍♂️</p>
-            }
-            <TodayFotter
-                folder={filter.folder}
-                setFilter={setFilter}
-            />
-        </div>
+        showPreloader ?
+            <Preloader /> :
+            <div className={mainStyles.container}>
+                <MyInput label={'Search 🔎'} value={filter.query} handleChange={onQueryChange} />
+                {searchedHabits.length > 0 ?
+                    <HabitList habitsArr={searchedHabits} />
+                    :
+                    <p className={mainStyles.subtitle} style={{ textAlign: 'center' }}>Nothing found 🤷‍♂️</p>
+                }
+                <TodayFotter
+                    folder={filter.folder}
+                    setFilter={setFilter}
+                />
+            </div>
     );
 };
 

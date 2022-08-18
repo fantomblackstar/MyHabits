@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import MySwitch from '../components/UI/checkboxes/MySwitch';
+import UserAccountInfo from '../components/UserAccountInfo/UserAccountInfo';
 import { MyContext } from '../context';
 import mainCls from '../styles/main.module.css';
 
@@ -13,14 +14,18 @@ const Settings = () => {
 
     return (
         <div className={mainCls.container}>
-            <ThemeBlock isLight={isLight} onThemeChange={onThemeChange}/>
+            <UserAccountInfo />
+            <ThemeBlock
+                isLight={isLight}
+                onThemeChange={onThemeChange}
+            />
         </div>
     );
 };
 
-const ThemeBlock = ({ isLight, onThemeChange}) => {
+const ThemeBlock = ({ isLight, onThemeChange }) => {
     return (
-        <div className={`${mainCls.block}`} style={{ padding: '10px' }}>
+        <div className={`${mainCls.block}`} >
             <div className={mainCls.groupRow}>
                 <p>Dark Mode </p>
                 <MySwitch
@@ -32,5 +37,6 @@ const ThemeBlock = ({ isLight, onThemeChange}) => {
     )
 
 }
+
 
 export default Settings;
