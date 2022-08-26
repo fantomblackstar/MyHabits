@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
+import SettingFolders from '../components/SettingFolders/SettingFolders';
 import MySwitch from '../components/UI/checkboxes/MySwitch';
 import UserAccountInfo from '../components/UserAccountInfo/UserAccountInfo';
 import { MyContext } from '../context';
@@ -19,6 +20,7 @@ const Settings = () => {
                 isLight={isLight}
                 onThemeChange={onThemeChange}
             />
+            <SettingFolders/>
         </div>
     );
 };

@@ -4,11 +4,11 @@ import cls from './TodayFooter.module.css';
 import mainClasses from '../../styles/main.module.css'
 import { MyContext } from '../../context';
 import HabitForm from '../Forms/HabitForm';
-import FolderForm from '../Forms/FolderForm';
 import folderImg from '../../img/folder_icon.svg';
+import FolderList from '../FolderList/FolderList';
 
 const TodayFotter = ({ folder, setFilter }) => {
-    const { isLight, setModal, modal } = useContext(MyContext)
+    const { isLight, setModal, modal, allFolders } = useContext(MyContext)
     const doneFilter = useRef(null)
 
     const handleAddNew = () => {
@@ -16,12 +16,19 @@ const TodayFotter = ({ folder, setFilter }) => {
     }
 
     const handleFolder = () => {
-        setModal({ visible: true, modalCtx: <FolderForm onFolderChange={onFolderChange} activeFolder={folder} /> })
+        setModal({
+            visible: true,
+            modalCtx: <FolderList
+                allFolders={allFolders}
+                onFolderClick={onFolderChange}
+                activeFolder={folder}
+            />
+        })
     }
 
     const handleDoneFilter = () => {
         doneFilter.current.classList.toggle(cls.active)
-        setFilter(prev => ({...prev, done:  doneFilter.current.classList.contains(cls.active)}))
+        setFilter(prev => ({ ...prev, done: doneFilter.current.classList.contains(cls.active) }))
     }
 
     const onFolderChange = (name) => {
@@ -40,7 +47,7 @@ const TodayFotter = ({ folder, setFilter }) => {
                     className={`${cls.folder} ${isLight ? cls.light : ''}`}
                     onClick={handleFolder}
                 >
-                    <img src={folderImg} alt='folder'/>
+                    <img src={folderImg} alt='folder' />
                     <p>{folder}</p>
                 </div>
             </div>

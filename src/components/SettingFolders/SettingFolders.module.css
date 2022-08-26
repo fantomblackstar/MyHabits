@@ -1,0 +1,39 @@
+.title {
+    display: inline-block;
+    font-size: 1rem;
+    position: relative;
+}
+
+.title::before {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    content:'';
+    display: block;
+    border: solid #fff;
+    border-width: 3px 3px 0px 0px;
+    transform: rotate(135deg);
+    right: -20px;
+    bottom: 5px;
+    transition: .4s ease;
+}
+
+.title.active::before {
+    transform: rotate(-45deg);
+    bottom: 0px;
+}
+
+.title.light::before{
+    border: solid rgb(31 70 186);
+    border-width: 3px 3px 0px 0px;
+}
+
+.body {
+    display: none;
+    margin-top: 10px;
+}
+
+.body.active {
+    display: block;
+    transition: .5s;
+}

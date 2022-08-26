@@ -2,11 +2,10 @@ import React, { useState, memo } from 'react';
 import { useContext } from 'react';
 import { MyContext } from '../../context';
 import MyInput from '../UI/inputs/MyInput';
-import cl from './Forms.module.css';
 import mainCl from '../../styles/main.module.css';
 import MyButton from '../UI/buttons/MyButton';
 import { writeDataDb } from '../../db/firebase';
-import folderImg from '../../img/folder_icon.svg';
+import FolderList from '../FolderList/FolderList';
 
 const FolderForm = memo(({ onFolderChange, activeFolder }) => {
     const { allFolders, setAllFolders, userUid } = useContext(MyContext)
@@ -32,8 +31,8 @@ const FolderForm = memo(({ onFolderChange, activeFolder }) => {
     return (
         <>
             <p className={mainCl.subtitle}>Choose folder:</p>
-            <FolderLists
-                onFolderChange={onFolderChange}
+            <FolderList
+                onFolderClick={onFolderChange}
                 allFolders={allFolders}
                 activeFolder={activeFolder}
             />
@@ -49,28 +48,5 @@ const FolderForm = memo(({ onFolderChange, activeFolder }) => {
     );
 })
 
-const FolderLists = memo(({ onFolderChange, allFolders, activeFolder = 'All' }) => {
-    const handleFolder = (event) => {
-        let name = event.target.textContent.replace(/\W/g, '')
-        if (name === '') name = event.target.parentElement.textContent.replace(/\W/g, '')
-        onFolderChange(name)
-    }
-
-    return (
-        <div className={cl.folderList}>
-            {allFolders.map(name => {
-                return (
-                    <div
-                        onClick={handleFolder}
-                        data-folder={name}
-                        className={cl.folderGroup}
-                        key={name}>
-                        <p className={`${activeFolder === name ? cl.activeFolder : ''}`}><img src={folderImg} alt='folder'/>{name}</p>
-                    </div>
-                )
-            })}
-        </div>
-    )
-})
 
 export default FolderForm;

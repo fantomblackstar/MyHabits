@@ -6,10 +6,14 @@ import cls from './MyModal.module.css';
 const MyModal = ({ children}) => {
     const {isLight, modal, setModal} = useContext(MyContext)
 
+    const onWrapHandle = (e) => {
+        setModal({...modal, visible:false})
+    }
+
     return (
         <div
             className={`${cls.modal} ${isLight? cls.light : ''} ${modal.visible ? cls.active : ''}`}
-            onClick={() => setModal({...modal, visible:false})}
+            onClick={onWrapHandle}
         >
             <div
                 className={cls.modalContent}
