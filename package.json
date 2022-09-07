@@ -1,6 +1,6 @@
 {
   "name": "myhabits_v2.0",
-  "version": "0.9.1",
+  "version": "0.9.5",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

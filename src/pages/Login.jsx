@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import Authorisation from '../components/Authorisation/Authorisation';
 import Preloader from '../components/UI/preloaders/Preloader';
 import { MyContext } from '../context';
-import { getDataDb, getHabitsDataDb, GoogleSignIn, writeDataDb } from '../db/firebase';
+import { getDataDb, GoogleSignIn, writeDataDb } from '../db/firebase';
 
 const Login = () => {
     const { setUserUid} = useContext(MyContext)

@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MyContext } from '../../context';
 import settingBlue from '../../img/setting_blue.png'
 import settingDark from '../../img/setting_dark.png'
-import { privateRoutes, publicRoutes } from '../../router';
+import { privateRoutes } from '../../router';
 import { useRef } from 'react';
 
 const Header = () => {
