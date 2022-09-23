@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/myhabits/static/css/main.dcfbb795.css",
+    "main.js": "/myhabits/static/js/main.fd4c8a41.js",
+    "static/media/google_icon.svg": "/myhabits/static/media/google_icon.6dd9c336779354ef99992df0b9088a9e.svg",
+    "index.html": "/myhabits/index.html",
+    "static/media/folder_icon.svg": "/myhabits/static/media/folder_icon.22eb259eb7fff28da9a467abe6bbfa8f.svg",
+    "main.dcfbb795.css.map": "/myhabits/static/css/main.dcfbb795.css.map",
+    "main.fd4c8a41.js.map": "/myhabits/static/js/main.fd4c8a41.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dcfbb795.css",
+    "static/js/main.fd4c8a41.js"
+  ]
+}
