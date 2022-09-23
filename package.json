@@ -2,7 +2,7 @@
   "name": "myhabits",
   "version": "1.0.1",
   "private": false,
-  "homepage": "https://fantomblackstart.github.io/my-habits",
+  "homepage": "https://fantomblackstar.github.io/myhabits",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
